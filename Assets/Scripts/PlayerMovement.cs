@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
-    float speed;
+    private float speed;
 
     Rigidbody2D rb;
     Vector2 moveDirection;
