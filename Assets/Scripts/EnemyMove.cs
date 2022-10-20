@@ -41,7 +41,7 @@ public class EnemyMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position = Vector2.MoveTowards(transform.position, path.waypoints[waypointIndex].position, speed * Time.fixedDeltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, path.waypoints[waypointIndex].position, (speed/10) * Time.fixedDeltaTime);
         
     }
 }
