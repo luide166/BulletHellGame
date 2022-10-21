@@ -29,7 +29,6 @@ public class WaveSpawner : MonoBehaviour
     void Start()
     {
         waveCount = 0;
-        GenerateWave();
     }
 
     void FixedUpdate()
@@ -53,10 +52,13 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    public void GenerateWave()
+    public void SetUpSpawner()
     {
+        //Level Up WaveCount
+        waveCount++;
+
+        //Store the Money
         waveMoney = PayWaveShop();
-        GenerateEnemies();
     }
 
     public void GenerateEnemies()
@@ -95,7 +97,6 @@ public class WaveSpawner : MonoBehaviour
 
     public int PayWaveShop()
     {
-        waveCount++;
         return waveCount * 10;
     }
 }
