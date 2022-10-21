@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AIPath
   - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -48,4 +49,10 @@ TagManager:
     locked: 0
   - name: Characters
     uniqueID: 2535603645
+    locked: 0
+  - name: Turrets
+    uniqueID: 3646316889
+    locked: 0
+  - name: Bullets
+    uniqueID: 424865075
     locked: 0

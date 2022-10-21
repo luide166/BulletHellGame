@@ -1,19 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
-public class PlayerHealth : CharacterHealth
+public class EnemyHealth : IHaveHealth
 {
     [SerializeField]
     private int maxHealth;
 
-    void Update()
+
+    void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            TakeDamage(1);
-        }
+        SetHealth(maxHealth);
     }
 
     public override void TakeDamage(int _amount)
@@ -25,4 +22,15 @@ public class PlayerHealth : CharacterHealth
     {
         base.SetHealth(_MaxHealth);
     }
+
+    public override void TakeHit()
+    {
+        base.TakeHit();
+    }
+
+    public override void Die()
+    {
+
+    }
+
 }

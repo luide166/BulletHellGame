@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 
-public class CharacterHealth : MonoBehaviour
+public class IHaveHealth : MonoBehaviour
 {
-    [Header("Health System")]
-    [SerializeField] 
+
     int currentHealth;
+
 
     public virtual void TakeDamage(int _amount)
     {
@@ -17,5 +17,15 @@ public class CharacterHealth : MonoBehaviour
     public virtual void SetHealth(int _MaxHealth)
     {
         currentHealth = _MaxHealth;
+    }
+
+    public virtual void TakeHit()
+    {
+        Debug.Log("Tomei um Hit");
+    }
+
+    public virtual void Die() 
+    { 
+    
     }
 }
