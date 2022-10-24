@@ -2,30 +2,35 @@
 using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class IHaveHealth : MonoBehaviour
 {
+    public int currentHealth;
 
-    int currentHealth;
-
-
-    public virtual void TakeDamage(int _amount)
+    void Update()
     {
-        currentHealth -= _amount;
+        if (currentHealth > 0)
+        {
+            Die();
+        }
     }
 
-    public virtual void SetHealth(int _MaxHealth)
+    public void SetHealth(int _MaxHealth)
     {
         currentHealth = _MaxHealth;
     }
 
+    public virtual IEnumerator TakeBullet()
+    {
+        yield break;
+    }
     public virtual void TakeHit()
     {
         Debug.Log("Tomei um Hit");
     }
-
     public virtual void Die() 
-    { 
-    
+    {
+        Debug.Log("Morri");
     }
 }

@@ -13,24 +13,28 @@ public class EnemyHealth : IHaveHealth
         SetHealth(maxHealth);
     }
 
-    public override void TakeDamage(int _amount)
+    public override IEnumerator TakeBullet()
     {
-        base.TakeDamage(_amount);
-    }
+        currentHealth--;
+        if (currentHealth <= 0)
+        {
+            Die();
+            yield break;
+        }
 
-    public override void SetHealth(int _MaxHealth)
-    {
-        base.SetHealth(_MaxHealth);
+        yield return new WaitForSeconds(0);
     }
 
     public override void TakeHit()
     {
         base.TakeHit();
+        //move ele de lugar
     }
 
     public override void Die()
     {
-
+        base.Die();
+        Destroy(gameObject);
     }
 
 }

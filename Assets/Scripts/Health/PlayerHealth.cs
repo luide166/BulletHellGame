@@ -12,33 +12,35 @@ public class PlayerHealth : IHaveHealth
     void Start()
     {
         SetHealth(maxHealth);
+        
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            TakeDamage(1);
+            Debug.Log("dano player");
+            StartCoroutine(TakeBullet());
         }
     }
 
-    public override void TakeDamage(int _amount)
+    public override IEnumerator TakeBullet()
     {
-        base.TakeDamage(_amount);
-    }
+        currentHealth --;
+        if(currentHealth <= 0)
+        {
+            Die();
+            yield break;
+        }
+        //dar dano no player
+    
 
-    public override void SetHealth(int _MaxHealth)
-    {
-        base.SetHealth(_MaxHealth);
-    }
-
-    public override void TakeHit()
-    {
-        base.TakeHit();
+        yield return new WaitForSeconds(0);
     }
 
     public override void Die()
     {
-
+        base.Die();
+        Destroy(gameObject);
     }
 }
