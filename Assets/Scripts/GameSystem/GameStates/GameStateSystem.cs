@@ -7,8 +7,6 @@ public class GameStateSystem : StateMachine
 {
     private State currentState;
 
-
-
     public WaveSpawner waveSpawner;
 
 
@@ -20,7 +18,12 @@ public class GameStateSystem : StateMachine
     public void Start()
     {
         currentState = GetComponent<State>();
-        StartCoroutine(currentState.Start());
+        SetState(new StartGameState(this)); 
+    }
+
+    public void OnPlayButton()
+    {
+        StartCoroutine(currentState.PlayButton());
     }
 
     public void OnPauseButton()
@@ -35,6 +38,25 @@ public class GameStateSystem : StateMachine
     public void OnGameOver()
     {
         //Perde o jogo
+    }
+
+
+    public void OnRoundEnd()
+    {
+
+    }
+
+    public bool HaveEnemies()
+    {
+        bool _haveEnemies = false;
+        EnemyHealth[] enemiesInScene = FindObjectsOfType<EnemyHealth>();
+
+        if (enemiesInScene != null)
+        {
+            _haveEnemies = true;
+        }
+
+        return _haveEnemies;
     }
 
 }
