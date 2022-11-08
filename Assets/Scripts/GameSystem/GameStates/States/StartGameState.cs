@@ -12,6 +12,7 @@ public class StartGameState : State
     public override IEnumerator Start()
     {
         gameState.waveSpawner.StartSpawner();
+        gameState.ChangeRoundText();
         Debug.Log("Start Game State");
 
         return base.Start();

@@ -12,6 +12,7 @@ public class RoundState : State
     {
         gameState.waveSpawner.GenerateEnemiesToSpawn();
 
+        gameState.ChangeRoundText();
 
         Debug.LogWarning("CountDown 5 Seconsds - Enemy Check");
         yield return new WaitForSeconds(5);

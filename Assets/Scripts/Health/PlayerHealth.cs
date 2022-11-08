@@ -2,40 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.UI;
+
 
 public class PlayerHealth : IHaveHealth
 {
     [SerializeField]
-    private int maxHealth;
+    private float maxHealth;
 
-    
+    public Image healthBar;
+
+
     void Start()
     {
         SetHealth(maxHealth);
-        
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            Debug.Log("dano player");
-            StartCoroutine(TakeBullet());
-        }
+
     }
 
     public override IEnumerator TakeBullet()
     {
-        currentHealth --;
-        if(currentHealth <= 0)
+        //dar dano no player
+        currentHealth--;
+        ChangeLife();
+        if (currentHealth <= 0)
         {
             Die();
             yield break;
         }
-        //dar dano no player
-    
+        float health = currentHealth;
+        float healthBarFillAmount = health / maxHealth;
 
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(.02f);
     }
 
     public override void Die()
@@ -43,4 +44,11 @@ public class PlayerHealth : IHaveHealth
         base.Die();
         Destroy(gameObject);
     }
+
+
+    public void ChangeLife()
+    {
+        healthBar.fillAmount =  currentHealth / maxHealth;
+    }
+
 }

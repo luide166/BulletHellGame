@@ -41,10 +41,6 @@ public class Bullet : MonoBehaviour
             DealDamage(otherHaveHealth);
             Destroy(this.gameObject);
         }
-        else
-        {
-
-        }
     }
 
     private void DealDamage(IHaveHealth _haveHealth)

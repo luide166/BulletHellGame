@@ -104,6 +104,11 @@ public class WaveSpawner : MonoBehaviour
     {
         return waveCount * 10;
     }
+
+    public int RoundLevel()
+    {
+        return waveCount;
+    }
 }
 
 [System.Serializable]

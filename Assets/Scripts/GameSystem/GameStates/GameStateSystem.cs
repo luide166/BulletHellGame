@@ -2,28 +2,30 @@
 using System.Collections.Generic;
 using UnityEditor.ShortcutManagement;
 using UnityEngine;
+using TMPro;
 
 public class GameStateSystem : StateMachine
 {
     private State currentState;
 
     public WaveSpawner waveSpawner;
-
+    [SerializeField]
+    private TextMeshProUGUI waveCount; 
 
     public void Awake()
     {
-        waveSpawner = GetComponent<WaveSpawner>();
+        waveSpawner = FindObjectOfType<WaveSpawner>();
+        SetState(new StartGameState(this));
     }
 
     public void Start()
     {
-        currentState = GetComponent<State>();
-        SetState(new StartGameState(this)); 
     }
 
     public void OnPlayButton()
     {
         StartCoroutine(currentState.PlayButton());
+        ChangeRoundText();
     }
 
     public void OnPauseButton()
@@ -43,7 +45,6 @@ public class GameStateSystem : StateMachine
 
     public void OnRoundEnd()
     {
-
     }
 
     public bool HaveEnemies()
@@ -58,5 +59,11 @@ public class GameStateSystem : StateMachine
 
         return _haveEnemies;
     }
+
+    public void ChangeRoundText()
+    {
+        waveCount.text = "Round: " + waveSpawner.waveCount.ToString();
+    }
+
 
 }
