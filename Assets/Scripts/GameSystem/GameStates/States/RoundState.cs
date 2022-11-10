@@ -8,16 +8,22 @@ public class RoundState : State
     {
     }
 
-    public override IEnumerator Start()
+    public override IEnumerator StartState()
     {
+
+        //Change Text
+        UIManager.instance.ChangeRoundText(gameState.waveSpawner.waveCount);
+
+        //Generate Enemies
         gameState.waveSpawner.GenerateEnemiesToSpawn();
 
-        gameState.ChangeRoundText();
 
         Debug.LogWarning("CountDown 5 Seconsds - Enemy Check");
         yield return new WaitForSeconds(5);
         Debug.Log("Espero que tenha inimigo");
 
+
+        //While have enemies wait
         do
         {
             Debug.Log("Tem inimigo");

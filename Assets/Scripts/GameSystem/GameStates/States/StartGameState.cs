@@ -9,20 +9,21 @@ public class StartGameState : State
 
     }
 
-    public override IEnumerator Start()
+    public override IEnumerator StartState()
     {
+        Debug.LogWarning("Start Game START - State");
         gameState.waveSpawner.StartSpawner();
-        gameState.ChangeRoundText();
-        Debug.Log("Start Game State");
+        UIManager.instance.ChangeRoundText(gameState.waveSpawner.waveCount);
 
-        return base.Start();
+        yield break;
     }
 
     public override IEnumerator PlayButton()
     {
+        Debug.LogWarning("Start Game PLAY BUTTON - State");
+        yield return new WaitForSeconds(1);
+        Debug.LogWarning("Begin Round");
         gameState.SetState(new RoundState(gameState));
-        
-        return base.PlayButton();
     }
 
 }

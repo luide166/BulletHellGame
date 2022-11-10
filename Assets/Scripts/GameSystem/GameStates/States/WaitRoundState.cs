@@ -8,19 +8,18 @@ public class WaitRoundState : State
     {
     }
 
-    public override IEnumerator Start()
+    public override IEnumerator StartState()
     {
         gameState.waveSpawner.SetSpawner();
-        gameState.ChangeRoundText();
         Debug.LogWarning("Waiting next round");
      
-        return base.Start();
+        return null;
     }
     public override IEnumerator PlayButton()
     {
         gameState.SetState(new RoundState(gameState));
 
-        return base.PlayButton();
+        return null;
     }
 
 }

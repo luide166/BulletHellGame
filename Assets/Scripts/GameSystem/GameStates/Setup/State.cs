@@ -11,7 +11,7 @@ public abstract class State
         gameState = _system;
     }
 
-    public virtual IEnumerator Start()
+    public virtual IEnumerator StartState()
     {
         yield break;
     }

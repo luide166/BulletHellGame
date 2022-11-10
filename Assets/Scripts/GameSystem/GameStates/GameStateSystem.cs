@@ -9,42 +9,23 @@ public class GameStateSystem : StateMachine
     private State currentState;
 
     public WaveSpawner waveSpawner;
-    [SerializeField]
-    private TextMeshProUGUI waveCount; 
 
     public void Awake()
     {
         waveSpawner = FindObjectOfType<WaveSpawner>();
-        SetState(new StartGameState(this));
+        currentState = new StartGameState(this);
+        Debug.Log(currentState + " game system");
+        SetState(currentState);
     }
 
     public void Start()
     {
+
     }
 
-    public void OnPlayButton()
+    public void RoundEnd()
     {
-        StartCoroutine(currentState.PlayButton());
-        ChangeRoundText();
-    }
 
-    public void OnPauseButton()
-    {
-        StartCoroutine(currentState.PauseGame());
-    }
-    public void OnResumeButton()
-    {
-        StartCoroutine(currentState.ResumeGame());
-    }
-
-    public void OnGameOver()
-    {
-        //Perde o jogo
-    }
-
-
-    public void OnRoundEnd()
-    {
     }
 
     public bool HaveEnemies()
@@ -59,11 +40,5 @@ public class GameStateSystem : StateMachine
 
         return _haveEnemies;
     }
-
-    public void ChangeRoundText()
-    {
-        waveCount.text = "Round: " + waveSpawner.waveCount.ToString();
-    }
-
 
 }

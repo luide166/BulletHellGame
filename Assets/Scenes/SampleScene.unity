@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 427706792}
   - component: {fileID: 427706791}
   - component: {fileID: 427706790}
+  - component: {fileID: 427706794}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -309,6 +310,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &427706794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427706789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5ec671dd11c68f4ba2c8b4a774f6da3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roundCountText: {fileID: 694296324}
 --- !u!1 &507009307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,17 +1200,17 @@ PrefabInstance:
     - target: {fileID: 7021229851340025280, guid: 28e85a73fc9e3f243bdcc6e654cdb4d5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.1847026
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7021229851340025280, guid: 28e85a73fc9e3f243bdcc6e654cdb4d5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.1215824
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7021229851340025280, guid: 28e85a73fc9e3f243bdcc6e654cdb4d5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.955078
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7021229851340025280, guid: 28e85a73fc9e3f243bdcc6e654cdb4d5,
         type: 3}
@@ -1438,7 +1452,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7021229851340025281, guid: 28e85a73fc9e3f243bdcc6e654cdb4d5,
           type: 3}
-        m_TargetAssemblyTypeName: GameStateSystem, Assembly-CSharp
+        m_TargetAssemblyTypeName: StateMachine, Assembly-CSharp
         m_MethodName: OnPlayButton
         m_Mode: 1
         m_Arguments:
