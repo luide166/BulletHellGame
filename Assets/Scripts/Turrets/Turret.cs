@@ -9,7 +9,7 @@ public class Turret : MonoBehaviour
     [SerializeField]
     float fireRate;
     float nextFireRate;
-
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -44,5 +44,6 @@ public class Turret : MonoBehaviour
     private void Idle()
     {
         launcher.Idle(this);
+        print("Idle - Torre");
     }
 }

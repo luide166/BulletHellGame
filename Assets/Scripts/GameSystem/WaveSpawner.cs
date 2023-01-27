@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-
     public int waveCount;
 
     [Header("Wave Shop")]
@@ -17,12 +16,10 @@ public class WaveSpawner : MonoBehaviour
     [Header("- Spawn Control")]
     [Space(20)]
     public Transform spawnPosition;
-    [Header("Wave Control")]
-    public int waveDuration;
-    public float waveTimer;
     [Header("Spawn Enemies")]
+    public bool canSpawn;
     public float spawnInterval;
-    public float spawnTimer;
+    private float spawnTimer;
 
 
 
@@ -32,38 +29,28 @@ public class WaveSpawner : MonoBehaviour
 
     void FixedUpdate()
     {
-        //timer over
-        if (spawnTimer <= 0)
-        {
-            //Spawn enemy
-            if (enemiesToSpawn.Count > 0)
-            {
-                Instantiate(enemiesToSpawn[0], transform.position, Quaternion.identity);
-                enemiesToSpawn.RemoveAt(0);
-                spawnTimer = spawnInterval;
-            }
-        }
-        // count time
-        else
-        {
-            spawnTimer -= Time.fixedDeltaTime;
-            waveTimer -= Time.fixedDeltaTime;
-        }
+        SpawnEnemies();
     }
 
     public void StartSpawner()
     {
         waveCount = 0;
-        SetSpawner();
+        spawnTimer = 0;
+        spawnInterval = 0.3f;
+
     }
 
-    public void SetSpawner()
+    public void PrepareNextRoundSpawner()
     {
+        //Stop Spawner
+        canSpawn = false;
+
         //Level Up WaveCount
         waveCount++;
 
         //Store the Money
         waveMoney = PayWaveShop();
+        GenerateEnemiesToSpawn();
     }
 
     public void GenerateEnemiesToSpawn()
@@ -84,13 +71,11 @@ public class WaveSpawner : MonoBehaviour
             {
                 generatedEnemies.Add(enemies[randomEnemyIndex].enemyPrefab);
 
-                Debug.Log("Comprei " + generatedEnemies[enemiesBought].name);
                 enemiesBought++;
                 waveMoney -= enemyCost;
             }
             else if (waveMoney <= 0)
             {
-                Debug.Log("Parei de comprar");
                 break;
             }
 
@@ -98,6 +83,9 @@ public class WaveSpawner : MonoBehaviour
         
         enemiesToSpawn.Clear();
         enemiesToSpawn = generatedEnemies;
+
+
+        Debug.LogWarning("Inimigos Prontos para Spawn");
     }
 
     public int PayWaveShop()
@@ -109,6 +97,35 @@ public class WaveSpawner : MonoBehaviour
     {
         return waveCount;
     }
+
+    public void SpawnEnemies()
+    {
+        if (canSpawn)
+        {
+            //timer over
+            if (spawnTimer <= 0)
+            {
+                //Have enemies to Spawn
+                if (enemiesToSpawn.Count > 0)
+                {
+                    Instantiate(enemiesToSpawn[0], transform.position, Quaternion.identity);
+                    Debug.Log("Start Spawning");
+                    enemiesToSpawn.RemoveAt(0);
+                    spawnTimer = spawnInterval;
+                }
+                else
+                {
+                    canSpawn = false;
+                }
+            }
+            // count time
+            else
+            {
+                spawnTimer -= Time.fixedDeltaTime;
+            }
+        }
+    }
+
 }
 
 [System.Serializable]

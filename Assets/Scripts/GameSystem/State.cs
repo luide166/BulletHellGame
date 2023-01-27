@@ -1,37 +1,24 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class State
 {
-    protected readonly GameStateSystem gameState;
-
-    public State(GameStateSystem _system)
-    {
-        gameState = _system;
-    }
-
     public virtual IEnumerator StartState()
     {
         yield break;
     }
-
     public virtual IEnumerator PlayButton()
     {
         yield break;
     }
-
-    public virtual IEnumerator PauseGame()
+    public virtual IEnumerator PauseButton()
     {
         yield break;
     }
-    public virtual IEnumerator ResumeGame()
-    {
-        yield break;
-    }
-
     public virtual IEnumerator GameOver()
     {
         yield break;
     }
+
 }
