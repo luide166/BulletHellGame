@@ -1,27 +1,32 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-internal class PreRoundState : State
+public class PreRoundState : State
 {
-    private RoundSystem roundSystem;
+   
 
-    public PreRoundState(RoundSystem roundSystem)
+    public override void EnterState(StateMachine state)
     {
-        this.roundSystem = roundSystem;
+        Debug.Log("pre Round State");
     }
 
-    public override IEnumerator StartState()
+    public override void GameOver(StateMachine state)
     {
-        roundSystem.waveSpawner.PrepareNextRoundSpawner();
-
-        yield return new WaitForSeconds(2);
-        roundSystem.waveSpawner.canSpawn = true;
-        roundSystem.SetState(new RoundState(roundSystem));
+        throw new System.NotImplementedException();
     }
 
-    public override IEnumerator PlayButton()
+    public override void PauseButton(StateMachine state)
     {
-        roundSystem.waveSpawner.canSpawn = true;
-        return base.PlayButton();
+        throw new System.NotImplementedException();
+    }
+
+    public override void PlayButton(StateMachine state)
+    {
+       
+    }
+
+    public override void UpdateState(StateMachine state)
+    {
+        throw new System.NotImplementedException();
     }
 }

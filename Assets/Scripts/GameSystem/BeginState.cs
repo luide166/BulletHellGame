@@ -2,28 +2,37 @@
 using System.Threading;
 using UnityEngine;
 
-internal class BeginState : State
+public class BeginState : State
 {
-    private RoundSystem roundSystem;
-
-    public BeginState(RoundSystem roundSystem)
+    
+    public override void EnterState(StateMachine state)
     {
-        this.roundSystem = roundSystem;
-    }
-
-    public override IEnumerator StartState()
-    {
-        //configurar o spawner
-        //configurar a interface
+        Debug.Log("vsievueiunvi");
+        //configurar o spawner (Interface integrada) OK
         //não deixar as torres Atirarem
         //configurar a vida do Jogador
 
-        roundSystem.waveSpawner.StartSpawner();
-        UIManager.instance.ChangeRoundText(roundSystem.roundCount);
+        state.waveSpawner.StartSpawner();
+        state.SetState(state.preRoundState);
 
-        yield return new WaitForSeconds(2);
-        roundSystem.SetState(new PreRoundState(roundSystem));
-        Debug.Log(this.ToString());
+    }
+    public override void UpdateState(StateMachine state)
+    {
+
     }
 
+    public override void PauseButton(StateMachine state)
+    {
+
+    }
+
+    public override void PlayButton(StateMachine state)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void GameOver(StateMachine state)
+    {
+        throw new System.NotImplementedException();
+    }
 }

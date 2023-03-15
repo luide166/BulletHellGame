@@ -1,17 +1,30 @@
 ﻿using System.Collections;
 
-internal class RoundState : State
+public class RoundState : State
 {
-    private RoundSystem roundSystem;
 
-    public RoundState(RoundSystem roundSystem)
+    public override void EnterState(StateMachine state)
     {
-        this.roundSystem = roundSystem;
+
     }
 
-    public override IEnumerator StartState()
+    public override void GameOver(StateMachine state)
     {
+        throw new System.NotImplementedException();
+    }
 
-        yield break;
+    public override void PauseButton(StateMachine state)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void PlayButton(StateMachine state)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void UpdateState(StateMachine state)
+    {
+        throw new System.NotImplementedException();
     }
 }
