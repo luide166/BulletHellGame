@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyHealth : IHaveHealth
 {
+    public static event Action Dead;
     [SerializeField]
     private int maxHealth;
 
@@ -34,6 +36,7 @@ public class EnemyHealth : IHaveHealth
     public override void Die()
     {
         base.Die();
+        Dead();
         Destroy(gameObject);
     }
 

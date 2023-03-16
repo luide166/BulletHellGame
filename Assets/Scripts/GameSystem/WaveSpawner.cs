@@ -16,16 +16,21 @@ public class WaveSpawner : MonoBehaviour
     [Header("- Spawn Control")]
     [Space(20)]
     public Transform spawnPosition;
+    public int aliveEnemyCount;
     [Header("Spawn Enemies")]
     public bool canSpawn;
     public float spawnInterval;
     private float spawnTimer;
 
-
+    private void Start()
+    {
+        EnemyHealth.Dead += KillEnemies;
+    }
 
     void FixedUpdate()
     {
         SpawnEnemies();
+        Debug.Log(aliveEnemyCount);
     }
 
     public void StartSpawner()
@@ -33,7 +38,7 @@ public class WaveSpawner : MonoBehaviour
         canSpawn = false;
         waveCount = 1;
         spawnTimer = 0;
-        spawnInterval = 0.3f;
+        spawnInterval = 3f;
         waveMoney = PayWaveShop();
         GenerateEnemiesToSpawn();
     }
@@ -92,7 +97,7 @@ public class WaveSpawner : MonoBehaviour
 
  
 
-    public int RoundLevel()
+    public int RoundCount()
     {
         return waveCount;
     }
@@ -108,6 +113,7 @@ public class WaveSpawner : MonoBehaviour
                 if (enemiesToSpawn.Count > 0)
                 {
                     Instantiate(enemiesToSpawn[0], transform.position, Quaternion.identity);
+                    aliveEnemyCount++;
                     Debug.Log("Start Spawning");
                     enemiesToSpawn.RemoveAt(0);
                     spawnTimer = spawnInterval;
@@ -123,6 +129,11 @@ public class WaveSpawner : MonoBehaviour
                 spawnTimer -= Time.fixedDeltaTime;
             }
         }
+    }
+
+    public void KillEnemies()
+    {
+        aliveEnemyCount--;
     }
 
 }

@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-    public bool canSpawn;
-
     State currentState;
     public BeginState beginState = new BeginState();
     public RoundState roundState = new RoundState();
     public PreRoundState preRoundState = new PreRoundState();
-
 
     public WaveSpawner waveSpawner;
 
@@ -33,7 +30,6 @@ public class StateMachine : MonoBehaviour
     {
         currentState.UpdateState(this);
     }
-    
 
     public void PlayButton(State _state)
     {
@@ -44,4 +40,12 @@ public class StateMachine : MonoBehaviour
     {
         currentState.PauseButton(this);
     }
+
+    #region UI Button Method
+    public void Play()
+    {
+        PlayButton(currentState);
+    }
+    #endregion
+
 }

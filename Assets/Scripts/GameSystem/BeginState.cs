@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Threading;
 using UnityEngine;
 
 public class BeginState : State
@@ -7,28 +6,32 @@ public class BeginState : State
     
     public override void EnterState(StateMachine state)
     {
-        Debug.Log("vsievueiunvi");
+        Debug.Log("Begin State");
         //configurar o spawner (Interface integrada) OK
         //não deixar as torres Atirarem
         //configurar a vida do Jogador
 
         state.waveSpawner.StartSpawner();
-        state.SetState(state.preRoundState);
-
-    }
-    public override void UpdateState(StateMachine state)
-    {
-        
-    }
-
-    public override void PauseButton(StateMachine state)
-    {
+        UIManager.instance.ChangeRoundText(state.waveSpawner.RoundCount());
 
     }
 
     public override void PlayButton(StateMachine state)
     {
-        throw new System.NotImplementedException();
+        // Se apertar play Vai pro Round
+        state.waveSpawner.canSpawn = true;
+        state.SetState(state.roundState);
+    }
+
+    public override void UpdateState(StateMachine state)
+    {
+        Debug.Log("Update Begin State");
+
+    }
+
+    public override void PauseButton(StateMachine state)
+    {
+
     }
 
     public override void GameOver(StateMachine state)
