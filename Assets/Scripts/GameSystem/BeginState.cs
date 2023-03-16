@@ -18,7 +18,7 @@ public class BeginState : State
     }
     public override void UpdateState(StateMachine state)
     {
-
+        
     }
 
     public override void PauseButton(StateMachine state)

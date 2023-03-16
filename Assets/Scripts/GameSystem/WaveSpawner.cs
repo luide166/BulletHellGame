@@ -36,7 +36,6 @@ public class WaveSpawner : MonoBehaviour
         spawnInterval = 0.3f;
         waveMoney = PayWaveShop();
         GenerateEnemiesToSpawn();
-        UIManager.instance.ChangeRoundText(waveCount);
     }
 
     public void PrepareNextRoundSpawner()
@@ -83,12 +82,10 @@ public class WaveSpawner : MonoBehaviour
             {
                 break;
             }
-
         }
         
         enemiesToSpawn.Clear();
         enemiesToSpawn = generatedEnemies;
-
 
         Debug.LogWarning("Inimigos Prontos para Spawn");
     }

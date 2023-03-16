@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
+    public bool canSpawn;
+
     State currentState;
     public BeginState beginState = new BeginState();
     public RoundState roundState = new RoundState();
@@ -15,9 +17,15 @@ public class StateMachine : MonoBehaviour
     private void Start()
     {
         waveSpawner = FindObjectOfType<WaveSpawner>();
-        waveSpawner = GetComponent<WaveSpawner>();
 
         currentState = beginState;
+        currentState.EnterState(this);
+    }
+
+    public void SetState(State _state)
+    {
+        currentState = _state;
+
         currentState.EnterState(this);
     }
 
@@ -25,10 +33,15 @@ public class StateMachine : MonoBehaviour
     {
         currentState.UpdateState(this);
     }
+    
 
-    public void SetState(State _state)
+    public void PlayButton(State _state)
     {
-        currentState = _state;
-        currentState.EnterState(this);
+        currentState.PlayButton(this);
+    }
+
+    public void PauseButton(State _state)
+    {
+        currentState.PauseButton(this);
     }
 }

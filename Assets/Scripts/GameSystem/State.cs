@@ -10,6 +10,7 @@ public abstract class State
     public abstract void UpdateState(StateMachine state);
 
     public abstract void  PlayButton(StateMachine state);
+
     public abstract void  PauseButton(StateMachine state);
 
     public  abstract void  GameOver(StateMachine state);

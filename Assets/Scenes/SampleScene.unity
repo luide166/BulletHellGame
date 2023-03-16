@@ -323,6 +323,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roundCountText: {fileID: 694296324}
+--- !u!1 &500423726 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7021229851340025283, guid: 28e85a73fc9e3f243bdcc6e654cdb4d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1337541082}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &507009307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,11 +1253,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7021229851340025281, guid: 28e85a73fc9e3f243bdcc6e654cdb4d5,
-        type: 3}
-      propertyPath: waveCount
-      value: 
-      objectReference: {fileID: 694296324}
     - target: {fileID: 7021229851340025283, guid: 28e85a73fc9e3f243bdcc6e654cdb4d5,
         type: 3}
       propertyPath: m_Name
@@ -1450,10 +1451,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7021229851340025281, guid: 28e85a73fc9e3f243bdcc6e654cdb4d5,
-          type: 3}
+      - m_Target: {fileID: 500423726}
         m_TargetAssemblyTypeName: StateMachine, Assembly-CSharp
-        m_MethodName: OnPlayButton
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

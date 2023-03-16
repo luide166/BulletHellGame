@@ -5,7 +5,6 @@ public class RoundState : State
 
     public override void EnterState(StateMachine state)
     {
-
     }
 
     public override void GameOver(StateMachine state)

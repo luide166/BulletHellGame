@@ -22,11 +22,15 @@ public class PreRoundState : State
 
     public override void PlayButton(StateMachine state)
     {
-       
+       // Se apertar play pode Spawnar inimigos
+       state.canSpawn = true;
     }
 
     public override void UpdateState(StateMachine state)
     {
-        throw new System.NotImplementedException();
+        if(state.canSpawn)
+        {
+            state.SetState(state.roundState);
+        }
     }
 }
