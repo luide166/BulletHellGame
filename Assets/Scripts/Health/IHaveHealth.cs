@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
@@ -6,17 +6,18 @@ using UnityEngine.PlayerLoop;
 
 public class IHaveHealth : MonoBehaviour
 {
-    public float currentHealth;
+    public int currentHealth;
 
     void Update()
     {
-        if (currentHealth > 0)
+        if (currentHealth < 0)
         {
+            
             Die();
         }
     }
 
-    public void SetHealth(float _MaxHealth)
+    public void SetHealth(int _MaxHealth)
     {
         currentHealth = _MaxHealth;
     }

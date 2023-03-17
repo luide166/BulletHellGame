@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class PlayerHealth : IHaveHealth
 {
     [SerializeField]
-    private float maxHealth;
+    private int maxHealth;
 
     public Image healthBar;
 

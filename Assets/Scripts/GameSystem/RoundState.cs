@@ -11,7 +11,6 @@ public class RoundState : State
         //Verificar se os inimigos foram Eliminados
         //Se as vidas acabarem Game Over
         //
-        Debug.Log("Round State");
         state.waveSpawner.canSpawn= true;
     }
 
@@ -28,12 +27,21 @@ public class RoundState : State
     public override void PlayButton(StateMachine state)
     {
         Debug.Log("PlayButon no Round");
-
     }
 
     public override void UpdateState(StateMachine state)
     {
         Debug.Log("update round");
 
+        if (state.waveSpawner.canSpawn == false)
+        {
+            Debug.Log("Spawnou Todos");
+            if(state.waveSpawner.aliveEnemyCount ==0)
+            {
+                Debug.Log("Matou Todos");
+                state.SetState(state.preRoundState);
+            }
+        }
     }
+
 }

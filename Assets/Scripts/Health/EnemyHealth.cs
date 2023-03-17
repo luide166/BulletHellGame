@@ -24,7 +24,7 @@ public class EnemyHealth : IHaveHealth
             yield break;
         }
 
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(.2f);
     }
 
     public override void TakeHit()

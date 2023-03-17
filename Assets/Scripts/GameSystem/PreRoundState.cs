@@ -13,6 +13,7 @@ public class PreRoundState : State
         //
         //
         Debug.Log("pre Round State");
+        state.waveSpawner.PrepareNextRoundSpawner();
         UIManager.instance.ChangeRoundText(state.waveSpawner.RoundCount());
     }
 

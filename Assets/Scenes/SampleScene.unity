@@ -418,7 +418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 10
+  maxHealth: 0
   healthBar: {fileID: 668125473}
 --- !u!58 &507009312
 CircleCollider2D:
@@ -1263,6 +1263,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021229853160808758, guid: 28e85a73fc9e3f243bdcc6e654cdb4d5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021229853160808758, guid: 28e85a73fc9e3f243bdcc6e654cdb4d5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.44
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28e85a73fc9e3f243bdcc6e654cdb4d5, type: 3}
