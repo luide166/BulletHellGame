@@ -8,33 +8,30 @@ using UnityEngine.UI;
 public class PlayerHealth : IHaveHealth
 {
     [SerializeField]
-    private int maxHealth;
-
-    public Image healthBar;
+    private float maxHealth;
 
 
     void Start()
     {
         SetHealth(maxHealth);
+        UIManager.instance.ChangePlayerLife(maxHealth,currentHealth);
     }
 
     void Update()
     {
-
     }
 
     public override IEnumerator TakeBullet()
     {
         //dar dano no player
         currentHealth--;
-        ChangeLife();
+        UIManager.instance.ChangePlayerLife(maxHealth, currentHealth);
+        
         if (currentHealth <= 0)
         {
             Die();
             yield break;
         }
-        float health = currentHealth;
-        float healthBarFillAmount = health / maxHealth;
 
         yield return new WaitForSeconds(.02f);
     }
@@ -46,9 +43,5 @@ public class PlayerHealth : IHaveHealth
     }
 
 
-    public void ChangeLife()
-    {
-        healthBar.fillAmount =  currentHealth / maxHealth;
-    }
 
 }

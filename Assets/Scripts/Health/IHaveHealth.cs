@@ -6,18 +6,18 @@ using UnityEngine.PlayerLoop;
 
 public class IHaveHealth : MonoBehaviour
 {
-    public int currentHealth;
+    public float currentHealth;
 
     void Update()
     {
         if (currentHealth < 0)
         {
-            
+
             Die();
         }
     }
 
-    public void SetHealth(int _MaxHealth)
+    public void SetHealth(float _MaxHealth)
     {
         currentHealth = _MaxHealth;
     }

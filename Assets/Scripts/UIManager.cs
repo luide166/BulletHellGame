@@ -9,7 +9,9 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
 
     [SerializeField]
-    private TextMeshProUGUI roundCountText; 
+    private TextMeshProUGUI roundCountText;
+    [SerializeField]
+    private Image healthBar;
 
 
     // Start is called before the first frame update
@@ -17,6 +19,7 @@ public class UIManager : MonoBehaviour
     {
         instance = this;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -27,5 +30,11 @@ public class UIManager : MonoBehaviour
     public void ChangeRoundText(int roundCount)
     {
         roundCountText.text = "Round: " + roundCount.ToString();
+    }
+
+    public void ChangePlayerLife(float _maxHealth, float _currentHealth)
+    {
+        float fillpercentage = _currentHealth / _maxHealth;
+        healthBar.fillAmount = fillpercentage;
     }
 }
