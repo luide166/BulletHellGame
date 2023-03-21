@@ -12,6 +12,9 @@ public class EnemyHealth : IHaveHealth
     private int maxHealth;
     Rigidbody2D rb;
 
+    [SerializeField]
+    private GameObject coin;
+
 
     void Start()
     {
@@ -41,6 +44,10 @@ public class EnemyHealth : IHaveHealth
     {
         base.Die();
         Dead();
+        for (int i = 0; i < (maxHealth*5); i++)
+        {
+            Instantiate(coin, transform.position, transform.rotation);
+        }
         Destroy(gameObject);
     }
 

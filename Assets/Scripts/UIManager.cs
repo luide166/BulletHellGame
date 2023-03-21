@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Image healthBar;
     [SerializeField]
+    private TextMeshProUGUI screwText;
+    [SerializeField]
     private TextMeshProUGUI coinsText;
 
 
@@ -40,5 +42,14 @@ public class UIManager : MonoBehaviour
     {
         float fillpercentage = _currentHealth / _maxHealth;
         healthBar.fillAmount = fillpercentage;
+    }
+
+    public void ChangeScrewText(int amount)
+    {
+        screwText.text = amount.ToString();
+    }
+    public void ChangeCoinText(int amount)
+    {
+        coinsText.text = amount.ToString();
     }
 }
