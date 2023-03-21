@@ -15,10 +15,7 @@ public class PlayerAttack : MonoBehaviour
 
     [Header("Knockback Effect")]
     [SerializeField]
-    private Rigidbody2D rb;
-
-    [SerializeField]
-    private float strenght = 16, delay = 0.15f;
+    private float attackPower = 16;
 
     public UnityEvent OnApplyKnockback, OnDoneKnockback;
 
@@ -40,7 +37,9 @@ public class PlayerAttack : MonoBehaviour
                 Collider2D[] thingsToHit = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, whatToAttack);
                 for (int i = 0; i < thingsToHit.Length; i++)
                 {
-                    thingsToHit[i].GetComponent<IHaveHealth>().TakeHit();
+                    print(thingsToHit[i].name);
+                    Vector2 knockDir = (thingsToHit[i].transform.position - transform.position).normalized;
+                    thingsToHit[i].GetComponent<IHaveHealth>().TakeHit(attackPower, knockDir);
                     timeBetweenAttack = attackTimer;
                 }
             }

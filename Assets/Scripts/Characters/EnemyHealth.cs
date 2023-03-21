@@ -10,11 +10,13 @@ public class EnemyHealth : IHaveHealth
     public static event Action Dead;
     [SerializeField]
     private int maxHealth;
+    Rigidbody2D rb;
 
 
     void Start()
     {
         SetHealth(maxHealth);
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public override IEnumerator TakeBullet()
@@ -29,10 +31,10 @@ public class EnemyHealth : IHaveHealth
         yield return new WaitForSeconds(.2f);
     }
 
-    public override void TakeHit()
+    public override void TakeHit(float knockPower, Vector2 knockDir)
     {
-        base.TakeHit();
         //move ele de lugar
+        StartCoroutine(Knockback(knockPower, knockDir));
     }
 
     public override void Die()
@@ -40,6 +42,22 @@ public class EnemyHealth : IHaveHealth
         base.Die();
         Dead();
         Destroy(gameObject);
+    }
+
+    public IEnumerator Knockback(float knockPower,Vector2 knockDir)
+    {
+        float timer = 0;
+        float knockDur = (knockPower / (rb.mass * 1.5f));
+
+        while(knockDur> timer)
+        {
+            timer += Time.deltaTime;
+
+            rb.AddForce(knockDir * knockPower, ForceMode2D.Impulse);
+        }
+
+
+        yield return new WaitForSeconds(1);
     }
 
 }

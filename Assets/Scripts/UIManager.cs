@@ -7,11 +7,15 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
-
+    [Header("Round Info")]
     [SerializeField]
     private TextMeshProUGUI roundCountText;
+
+    [Header("Player Info")]
     [SerializeField]
     private Image healthBar;
+    [SerializeField]
+    private TextMeshProUGUI coinsText;
 
 
     // Start is called before the first frame update

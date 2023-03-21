@@ -24,7 +24,7 @@ public class TurretHealth : IHaveHealth
         yield return null;
     }
 
-    public override void TakeHit()
+    public override void TakeHit(float knockPower, Vector2 knockDir)
     {
         currentHealth--;
         if(currentHealth < 0)

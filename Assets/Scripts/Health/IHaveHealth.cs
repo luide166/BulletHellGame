@@ -26,7 +26,7 @@ public class IHaveHealth : MonoBehaviour
     {
         yield break;
     }
-    public virtual void TakeHit()
+    public virtual void TakeHit(float knockPower, Vector2 knockDir)
     {
         Debug.Log("Tomei um Hit");
     }
