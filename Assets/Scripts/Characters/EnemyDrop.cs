@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyDrop : MonoBehaviour
 {
+    [SerializeField]
     private GameObject[] itensToDrop;
 
     void Start()
@@ -19,6 +20,11 @@ public class EnemyDrop : MonoBehaviour
 
     public void Dropcollectables()
     {
+        int value = this.GetComponent<EnemyHealth>().DropAmount() ;
+        for (int i = 0; i < value; i++)
+        {
+            Instantiate(itensToDrop[1], transform.position, transform.rotation);
+        }
 
     }
 }

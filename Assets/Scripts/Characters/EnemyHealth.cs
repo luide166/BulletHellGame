@@ -14,6 +14,8 @@ public class EnemyHealth : IHaveHealth
 
     [SerializeField]
     private GameObject coin;
+    [SerializeField]
+    private int coinMultiplier;
 
 
     void Start()
@@ -65,6 +67,14 @@ public class EnemyHealth : IHaveHealth
 
 
         yield return new WaitForSeconds(1);
+    }
+
+    public int DropAmount()
+    {
+        int amount = 0;
+        amount = maxHealth * coinMultiplier;
+
+        return amount;
     }
 
 }
