@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7021229851340025280}
   - component: {fileID: 5193649430337022223}
+  - component: {fileID: 500423729}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -46,6 +47,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveSpawner: {fileID: 7021229853160808759}
+--- !u!114 &500423729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7021229851340025283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e7f08fc7b6a535459de9222f9bfc6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 16
+  height: 9
+  tilePrefab: {fileID: 4455794265017974783, guid: 3aa6fb5353c4b124f81b785293cd3c0d,
+    type: 3}
+  camera: {fileID: 0}
 --- !u!1 &7021229852411332421
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7021229853160808905}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.565297, y: -4.731582, z: 5.955078}
+  m_LocalPosition: {x: -11.72, y: -9.44, z: 5.955078}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -135,5 +153,6 @@ MonoBehaviour:
       type: 3}
     cost: 3
   spawnPosition: {fileID: 7021229852411332418}
+  aliveEnemyCount: 0
   canSpawn: 0
   spawnInterval: 1

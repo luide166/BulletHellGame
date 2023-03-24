@@ -27,9 +27,25 @@ public class PlayerCollectables : MonoBehaviour
         UIManager.instance.ChangeCoinText(coins);
     }
 
+    public void SpendCoins(int amount)
+    {
+        if(amount<= coins)
+        {
+            coins -= amount;
+            UIManager.instance.ChangeCoinText(coins);
+        }
+
+    }
+
     public void AddScrews(int amount)
     {
         screws += amount;
+        UIManager.instance.ChangeScrewText(screws);
+    }
+
+    public void SpendScrews(int amount)
+    {
+        screws -= amount;
         UIManager.instance.ChangeScrewText(screws);
     }
 

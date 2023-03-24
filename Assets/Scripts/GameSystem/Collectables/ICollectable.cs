@@ -5,6 +5,8 @@ using UnityEngine;
 public class ICollectable : MonoBehaviour
 {
     [SerializeField]
+    SpriteRenderer sprite;
+    [SerializeField]
     public int value;
     [SerializeField]
     private Transform trans;
@@ -12,6 +14,9 @@ public class ICollectable : MonoBehaviour
     private float stopMoveTime = 1;
     private Vector3 offset;
 
+    private bool stopMove;
+    [SerializeField]
+    float timeToDestroy;
     
 
 
@@ -23,7 +28,7 @@ public class ICollectable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        stopMove = false;
     }
 
     // Update is called once per frame
@@ -38,9 +43,17 @@ public class ICollectable : MonoBehaviour
             timer += Time.deltaTime;
             trans.position += offset * Time.deltaTime;
         }
+        else
+        {
+            stopMove = false;
+        }
     }
 
-
+    public IEnumerator DestroyCollectable()
+    {
+        Destroy(gameObject, timeToDestroy);
+        yield break;
+    }
 
     public virtual IEnumerator AddCollectable(PlayerCollectables player)
     {

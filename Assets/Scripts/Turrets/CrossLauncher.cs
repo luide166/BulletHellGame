@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CrossLauncher : MonoBehaviour, ILauncher
 {
+    public string turretName;
+    public int turretCost;
+    public ICollectable collectable;
+
     [SerializeField]
     private Bullet bulletPrefab;
 

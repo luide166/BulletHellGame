@@ -30,6 +30,10 @@ public class IHaveHealth : MonoBehaviour
     {
         Debug.Log("Tomei um Hit");
     }
+    public virtual void TakeHit(float hitPower)
+    {
+        Debug.Log("Tomei um Hit");
+    }
     public virtual void Die() 
     {
         Debug.Log("Morri" + name);

@@ -17,7 +17,6 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private float attackPower = 16;
 
-    public UnityEvent OnApplyKnockback, OnDoneKnockback;
 
     // Start is called before the first frame update
     void Start()

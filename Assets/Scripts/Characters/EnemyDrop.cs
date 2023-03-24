@@ -23,7 +23,8 @@ public class EnemyDrop : MonoBehaviour
         int value = this.GetComponent<EnemyHealth>().DropAmount() ;
         for (int i = 0; i < value; i++)
         {
-            Instantiate(itensToDrop[1], transform.position, transform.rotation);
+            int item = Random.Range(0, itensToDrop.Length);
+            Instantiate(itensToDrop[item], transform.position, transform.rotation);
         }
 
     }
