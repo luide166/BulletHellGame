@@ -18,7 +18,7 @@ public class PlayerCollectables : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(coins + screws);
+
     }
 
     public void AddCoins(int amount)

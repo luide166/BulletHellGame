@@ -13,7 +13,7 @@ public class BuildPlace : IHaveHealth
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetHealth(maxhealth);
     }
 
     // Update is called once per frame
@@ -29,12 +29,12 @@ public class BuildPlace : IHaveHealth
         {
             Die();
         }
-        base.TakeHit(hitPower);
     }
 
     public override void Die()
     {
         base.Die();
         Instantiate(buildSlotPrefab,transform.position,transform.rotation);
+        Destroy(gameObject);
     }
 }

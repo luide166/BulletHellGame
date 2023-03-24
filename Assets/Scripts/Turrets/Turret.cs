@@ -7,6 +7,9 @@ public class Turret : MonoBehaviour
     private ILauncher launcher;
 
     [SerializeField]
+    bool idle;
+
+    [SerializeField]
     float fireRate;
     float nextFireRate;
     
@@ -20,7 +23,8 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CanFire())
+        
+        if (CanShoot())
         {
             FireWeapon();
         }
@@ -30,14 +34,14 @@ public class Turret : MonoBehaviour
         }
     }
 
-    private bool CanFire()
+    private bool CanShoot()
     {
-        return Time.time >= nextFireRate;
+        return Time.deltaTime >= nextFireRate;
     }
 
     private void FireWeapon()
     {
-        nextFireRate = Time.time + fireRate;
+        nextFireRate = Time.deltaTime + fireRate;
         launcher.Launch(this);
     }
 
