@@ -39,7 +39,11 @@ public class Bullet : MonoBehaviour
         if (otherHaveHealth != null)
         {
             DealDamage(otherHaveHealth);
-            Destroy(this.gameObject);
+            if (otherHaveHealth.gameObject.CompareTag("Player") || otherHaveHealth.gameObject.CompareTag("Enemy"))
+            {
+                Destroy(this.gameObject);
+
+            }
         }
     }
 

@@ -19,9 +19,10 @@ public class PlayerAttack : MonoBehaviour
     [Header("Attack System")]
     public Color attackCollor;
     public LayerMask whatToAttack;
+    public LayerMask whatToDestroy;
     public float attackRange;
     [SerializeField]
-    private float knockbackPower = 16;
+    private float knockbackPower = 8;
 
     [Header("Build System")]
     public Color buildCollor;
@@ -81,18 +82,29 @@ public class PlayerAttack : MonoBehaviour
         {
             BuildHit();
         }
-	}
+
+        timeBetweenAttack = hitTimer;
+    }
 
     private void AttackHit()
     {
+        //Attack Enemies
         Collider2D[] thingsToattack = Physics2D.OverlapCircleAll(hitPosition.position, attackRange, whatToAttack);
         for (int i = 0; i < thingsToattack.Length; i++)
         {
-            print(thingsToattack[i].name);
+            print(thingsToattack[i].name + " tomou um tapa");
             Vector2 knockDir = (thingsToattack[i].transform.position - transform.position).normalized;
             thingsToattack[i].GetComponent<IHaveHealth>().TakeHit(knockbackPower, knockDir);
-            timeBetweenAttack = hitTimer;
         }
+
+        //attack Structures, boxes and Turrets
+        Collider2D[] thingsToDestroy = Physics2D.OverlapCircleAll(hitPosition.position, attackRange, whatToDestroy);
+        for (int i = 0; i < thingsToDestroy.Length; i++)
+        {
+            print(thingsToDestroy[i].name + " ta sendo destruido");
+            thingsToDestroy[i].GetComponent<IHaveHealth>().TakeHit(1);
+        }
+
     }
 
     private void BuildHit()

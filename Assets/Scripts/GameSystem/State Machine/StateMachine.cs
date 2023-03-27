@@ -48,4 +48,28 @@ public class StateMachine : MonoBehaviour
     }
     #endregion
 
+    #region Turrets Idle
+
+    public void StopShootingTurrets()
+    {
+        Turret[] turret = FindObjectsOfType<Turret>();
+        for (int i = 0; i < turret.Length; i++)
+        {
+            turret[i].idle = true;
+        }
+    }
+    public void StartShootingTurrets()
+    {
+        Turret[] turret = FindObjectsOfType<Turret>();
+        for (int i = 0; i < turret.Length; i++)
+        {
+            turret[i].idle = false;
+        }
+
+    }
+
+
+
+    #endregion
+
 }

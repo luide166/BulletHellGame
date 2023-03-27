@@ -9,7 +9,7 @@ public class EnemyDrop : MonoBehaviour
 
     void Start()
     {
-        EnemyHealth.Dead += Dropcollectables;
+        EnemyHealth.EnemyDead += Dropcollectables;
     }
 
     // Update is called once per frame

@@ -12,8 +12,10 @@ public class BeginState : State
         //configurar a vida do Jogador
 
         state.waveSpawner.StartSpawner();
+        state.StopShootingTurrets();
         UIManager.instance.ChangeRoundText(state.waveSpawner.RoundCount());
 
+        
     }
 
     public override void PlayButton(StateMachine state)

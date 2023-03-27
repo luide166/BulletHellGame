@@ -24,13 +24,12 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        EnemyHealth.Dead += KillEnemies;
+        EnemyHealth.EnemyDead += KillEnemies;
     }
 
     void FixedUpdate()
     {
         SpawnEnemies();
-        Debug.Log(aliveEnemyCount);
     }
 
     public void StartSpawner()

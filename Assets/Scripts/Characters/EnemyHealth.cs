@@ -7,7 +7,7 @@ using static UnityEngine.UI.CanvasScaler;
 public class EnemyHealth : IHaveHealth
 {
 
-    public static event Action Dead;
+    public static event Action EnemyDead;
     [SerializeField]
     private int maxHealth;
     Rigidbody2D rb;
@@ -45,11 +45,11 @@ public class EnemyHealth : IHaveHealth
     public override void Die()
     {
         base.Die();
-        Dead();
-        for (int i = 0; i < (maxHealth*5); i++)
-        {
-            Instantiate(coin, transform.position, transform.rotation);
-        }
+        EnemyDead();
+       // for (int i = 0; i < (maxHealth*5); i++)
+      //  {
+       //     Instantiate(coin, transform.position, transform.rotation);
+        //}
         Destroy(gameObject);
     }
 

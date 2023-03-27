@@ -9,6 +9,9 @@ TagManager:
   - Bullet
   - Collectable
   - BuildPlace
+  - BuildSlot
+  - BuiltTurret
+  - TurretToBuild
   layers:
   - Default
   - TransparentFX
@@ -23,9 +26,9 @@ TagManager:
   - Bullets
   - Enemy
   - BuildPlace
-  - 
-  - 
-  - 
+  - BuildSlot
+  - BuiltTurret
+  - TurretToBuild
   - 
   - 
   - 

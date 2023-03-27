@@ -20,10 +20,19 @@ public class UIManager : MonoBehaviour
     private TextMeshProUGUI coinsText;
 
 
+    [Header("Shop UI")]
+    [SerializeField]
+    private GameObject shopUI;
+    private Transform buildSlot;
+    public Vector3 offsetShopUI;
+    private Camera cam;
+
+
     // Start is called before the first frame update
     void Awake()
     {
         instance = this;
+        cam = Camera.main;
     }
 
 
@@ -32,6 +41,23 @@ public class UIManager : MonoBehaviour
     {
         
     }
+
+    public void ActivateShopUI(Transform _buildSlot)
+    {
+        buildSlot = _buildSlot;
+        Vector3 pos = cam.WorldToScreenPoint(buildSlot.position + offsetShopUI);
+        shopUI.SetActive(true);
+        if (shopUI.transform.position != pos)
+        {
+            shopUI.transform.position = pos;
+        }
+    }
+
+    public void DesactivateShopUI()
+    {
+        shopUI.SetActive(false);
+    }
+
 
     public void ChangeRoundText(int roundCount)
     {

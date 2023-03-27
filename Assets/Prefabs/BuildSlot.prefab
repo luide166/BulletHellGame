@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4378178362437682018}
   - component: {fileID: 2781615238171105963}
-  m_Layer: 0
+  - component: {fileID: 4552557775635459869}
+  m_Layer: 13
   m_Name: BuildSlot
-  m_TagString: Untagged
+  m_TagString: BuildSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,3 +85,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4552557775635459869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2960268757215825677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47b6cc058aa22744a4559eb7fda27eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 2
+  player: {fileID: 0}

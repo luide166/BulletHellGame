@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class TurretHealth : IHaveHealth
     [SerializeField]
     private int maxHealth;
 
+    public static event Action TurretDead;
 
     void Start()
     {
@@ -24,10 +26,10 @@ public class TurretHealth : IHaveHealth
         yield return null;
     }
 
-    public override void TakeHit(float knockPower, Vector2 knockDir)
+    public override void TakeHit(float hitPower)
     {
-        currentHealth--;
-        if(currentHealth < 0)
+        currentHealth -= hitPower;
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -36,6 +38,8 @@ public class TurretHealth : IHaveHealth
     public override void Die()
     {
         base.Die();
+        TurretDead();
+
         Destroy(gameObject);
     }
 }
