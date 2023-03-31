@@ -21,33 +21,49 @@ public class PlayerCollectables : MonoBehaviour
 
     }
 
+    #region Collect Things
+
     public void AddCoins(int amount)
     {
         coins += amount;
         UIManager.instance.ChangeCoinText(coins);
     }
-
-    public void SpendCoins(int amount)
-    {
-        if(amount<= coins)
-        {
-            coins -= amount;
-            UIManager.instance.ChangeCoinText(coins);
-        }
-
-    }
-
     public void AddScrews(int amount)
     {
         screws += amount;
         UIManager.instance.ChangeScrewText(screws);
     }
 
-    public void SpendScrews(int amount)
+    #endregion
+
+    public bool CanSpendCoins(int amount)
     {
-        screws -= amount;
-        UIManager.instance.ChangeScrewText(screws);
+        bool canBuy = false;
+
+        if (amount <= coins)
+        {
+            coins -= amount;
+            UIManager.instance.ChangeCoinText(coins);
+            canBuy = true;
+        }
+
+        return canBuy;
     }
+    public bool CanSpendScrews(int amount)
+    {
+        bool canBuy = false;
+
+        if (amount <= coins)
+        {
+            screws -= amount;
+            UIManager.instance.ChangeScrewText(coins);
+            canBuy = true;
+        }
+
+        return canBuy;
+    }
+
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {

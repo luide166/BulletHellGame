@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
     [Header("Shop UI")]
     [SerializeField]
     private GameObject shopUI;
+    private bool canBuild;
     private Transform buildSlot;
     public Vector3 offsetShopUI;
     private Camera cam;
@@ -33,6 +34,7 @@ public class UIManager : MonoBehaviour
     {
         instance = this;
         cam = Camera.main;
+        DesactivateShopUI();
     }
 
 
@@ -45,11 +47,15 @@ public class UIManager : MonoBehaviour
     public void ActivateShopUI(Transform _buildSlot)
     {
         buildSlot = _buildSlot;
-        Vector3 pos = cam.WorldToScreenPoint(buildSlot.position + offsetShopUI);
-        shopUI.SetActive(true);
-        if (shopUI.transform.position != pos)
+        BuildSlot slot = buildSlot.GetComponent<BuildSlot>();
+        if (slot.canBuild)
         {
-            shopUI.transform.position = pos;
+            Vector3 pos = cam.WorldToScreenPoint(buildSlot.position + offsetShopUI);
+            shopUI.SetActive(true);
+            if (shopUI.transform.position != pos)
+            {
+                shopUI.transform.position = pos;
+            }
         }
     }
 
@@ -58,6 +64,13 @@ public class UIManager : MonoBehaviour
         shopUI.SetActive(false);
     }
 
+    public Transform WhereToBuild()
+    {
+        DesactivateShopUI();
+        BuildSlot slot = buildSlot.GetComponent<BuildSlot>();
+        slot.canBuild = false;
+        return buildSlot;
+    }
 
     public void ChangeRoundText(int roundCount)
     {

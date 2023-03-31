@@ -12,6 +12,7 @@ public class RoundState : State
         //Se as vidas acabarem Game Over
         //
         state.waveSpawner.canSpawn= true;
+        state.StartShootingTurrets();
     }
 
     public override void GameOver(StateMachine state)
@@ -32,6 +33,7 @@ public class RoundState : State
     public override void UpdateState(StateMachine state)
     {
         Debug.Log("update round");
+        state.StartShootingTurrets();
 
         if (state.waveSpawner.canSpawn == false)
         {

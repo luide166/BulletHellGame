@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BuildSlot : MonoBehaviour
 {
+    public bool canBuild;
+
     public float minDistance;
 
     [SerializeField]
@@ -14,6 +16,7 @@ public class BuildSlot : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<PlayerAttack>().gameObject;
+        canBuild = true;
     }
 
     // Update is called once per frame

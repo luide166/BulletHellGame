@@ -15,6 +15,7 @@ public class PreRoundState : State
         Debug.Log("pre Round State");
         state.waveSpawner.PrepareNextRoundSpawner();
         UIManager.instance.ChangeRoundText(state.waveSpawner.RoundCount());
+        state.StopShootingTurrets();
     }
 
     public override void GameOver(StateMachine state)
@@ -35,7 +36,8 @@ public class PreRoundState : State
 
     public override void UpdateState(StateMachine state)
     {
-        if(state.waveSpawner.canSpawn)
+        state.StopShootingTurrets();
+        if (state.waveSpawner.canSpawn)
         {
             state.SetState(state.roundState);
         }

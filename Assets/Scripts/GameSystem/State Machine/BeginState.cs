@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BeginState : State
@@ -14,8 +15,10 @@ public class BeginState : State
         state.waveSpawner.StartSpawner();
         state.StopShootingTurrets();
         UIManager.instance.ChangeRoundText(state.waveSpawner.RoundCount());
+        state.StopShootingTurrets();
 
-        
+
+
     }
 
     public override void PlayButton(StateMachine state)
@@ -28,6 +31,7 @@ public class BeginState : State
     public override void UpdateState(StateMachine state)
     {
         Debug.Log("Update Begin State");
+        state.StopShootingTurrets();
 
     }
 

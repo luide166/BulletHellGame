@@ -10,6 +10,7 @@ public class StateMachine : MonoBehaviour
     public PreRoundState preRoundState = new PreRoundState();
 
     public WaveSpawner waveSpawner;
+    public Turret[] turrets;
 
     private void Start()
     {
@@ -46,6 +47,11 @@ public class StateMachine : MonoBehaviour
     {
         PlayButton(currentState);
     }
+
+    public void Pause()
+    {
+        PauseButton(currentState);
+    }
     #endregion
 
     #region Turrets Idle
@@ -65,10 +71,7 @@ public class StateMachine : MonoBehaviour
         {
             turret[i].idle = false;
         }
-
     }
-
-
 
     #endregion
 
