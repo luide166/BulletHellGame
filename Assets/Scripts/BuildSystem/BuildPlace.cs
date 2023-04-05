@@ -10,6 +10,8 @@ public class BuildPlace : IHaveHealth
     [SerializeField]
     private GameObject buildSlotPrefab;
 
+    public Sprite[] sprites;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,10 @@ public class BuildPlace : IHaveHealth
     public override void TakeHit(float hitPower)
     {
         currentHealth -= hitPower;
-        if(currentHealth <= 0)
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+        renderer.sprite = sprites[(int)currentHealth];
+
+        if (currentHealth <= 0)
         {
             Die();
         }

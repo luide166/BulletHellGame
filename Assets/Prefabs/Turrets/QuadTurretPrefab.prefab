@@ -44,13 +44,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4805114606010849729}
+  - component: {fileID: 4805114606010849733}
   - component: {fileID: 4805114606010849731}
   - component: {fileID: 4805114606010849730}
   - component: {fileID: 4805114606010849732}
-  - component: {fileID: 4805114606010849733}
   - component: {fileID: 4805114606010849734}
   m_Layer: 14
-  m_Name: Torre 4 lados
+  m_Name: QuadTurretPrefab
   m_TagString: BuiltTurret
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -73,6 +73,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &4805114606010849733
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4805114606010849728}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.6}
+  m_Size: {x: 0.9, y: 1.3}
+  m_Direction: 0
 --- !u!114 &4805114606010849731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idle: 1
-  shootsPerMinute: 30
+  shootsPerMinute: 20
 --- !u!114 &4805114606010849730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,22 +136,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 3
---- !u!70 &4805114606010849733
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4805114606010849728}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.6}
-  m_Size: {x: 0.9, y: 1.3}
-  m_Direction: 0
 --- !u!114 &4805114606010849734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,10 +149,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
-  cost: 100
-  itemToDrop: {fileID: 6776307137043732412, guid: bf0f5b1c8e4ee1a48a6d54dfc416bec1,
+  cost: 20
+  itemToDrop: {fileID: 3639032300411789323, guid: 2de30fe5fbb917049a37933bc64d130a,
     type: 3}
-  minDropPercentage: 0
+  minDropPercentage: 20
+  maxDropPercentage: 25
 --- !u!1 &4805114606124029714
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +178,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4805114606124029714}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.005, y: 1.387, z: 0}
+  m_LocalPosition: {x: -0.012, y: 0.563, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -209,7 +210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4805114606830256984}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.12, y: 1.4, z: 0}
+  m_LocalPosition: {x: -0.01, y: 0.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -255,14 +256,14 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -648650407
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f4c379ebe14997e4bb378e71935b76d3, type: 3}
+  m_Sprite: {fileID: 1116502392, guid: f4c379ebe14997e4bb378e71935b76d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.5, y: 3}
+  m_Size: {x: 1.92, y: 1.98}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -292,7 +293,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4805114607131900738}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.005, y: 2.573, z: 0}
+  m_LocalPosition: {x: 0.029, y: 1.739, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -323,7 +324,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4805114607658415394}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.871, y: 1.978, z: 0}
+  m_LocalPosition: {x: -0.824, y: 1.144, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -354,7 +355,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4805114607772610450}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.83, y: 1.952, z: 0}
+  m_LocalPosition: {x: 0.827, y: 1.099, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -29,7 +29,7 @@ TagManager:
   - BuildSlot
   - BuiltTurret
   - TurretToBuild
-  - 
+  - PlayMachine
   - 
   - 
   - 
@@ -49,8 +49,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
+  - name: Ground
     uniqueID: 4096288357
+    locked: 0
+  - name: ObjectsInGround
+    uniqueID: 4226905207
     locked: 0
   - name: Characters
     uniqueID: 2535603645

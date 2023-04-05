@@ -10,15 +10,14 @@ public class TurretHealth : IHaveHealth
 
     public static event Action TurretDead;
 
+    private TurretDrop drop;
+
+    private bool isBuilt;
+
     void Start()
     {
         SetHealth(maxHealth);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        drop = GetComponent<TurretDrop>();
     }
 
     public override IEnumerator TakeBullet()
@@ -39,6 +38,7 @@ public class TurretHealth : IHaveHealth
     {
         base.Die();
         TurretDead();
+        drop.DropColectables();
 
         Destroy(gameObject);
     }

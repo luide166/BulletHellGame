@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1759363651
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: -1
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.7735849, g: 0.13501246, b: 0.7580456, a: 1}
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1759363651
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.7735849, g: 0.13501246, b: 0.7580456, a: 1}
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c728a407fc8e74147b1c589944744aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.4
+  speed: 4
 --- !u!58 &1697487292685251483
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -269,8 +269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 3
+  maxHealth: 2
   coin: {fileID: 3639032300411789323, guid: 2de30fe5fbb917049a37933bc64d130a, type: 3}
+  coinMultiplier: 1
 --- !u!1 &8849591497232343923
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +343,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1759363651
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: -1
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.7735849, g: 0.13501246, b: 0.7580456, a: 1}

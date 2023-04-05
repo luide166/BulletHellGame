@@ -9,8 +9,8 @@ public class StateMachine : MonoBehaviour
     public RoundState roundState = new RoundState();
     public PreRoundState preRoundState = new PreRoundState();
 
+    [Header("Spawner")]
     public WaveSpawner waveSpawner;
-    public Turret[] turrets;
 
     private void Start()
     {
@@ -27,7 +27,7 @@ public class StateMachine : MonoBehaviour
         currentState.EnterState(this);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         currentState.UpdateState(this);
     }

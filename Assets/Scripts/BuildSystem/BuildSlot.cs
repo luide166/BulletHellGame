@@ -17,6 +17,7 @@ public class BuildSlot : MonoBehaviour
     {
         player = FindObjectOfType<PlayerAttack>().gameObject;
         canBuild = true;
+        TurretHealth.TurretDead += TurretDestroyed;
     }
 
     // Update is called once per frame
@@ -38,34 +39,42 @@ public class BuildSlot : MonoBehaviour
 
     bool PlayerIsNear()
     {
-        float distance = Vector3.Distance(this.transform.position, player.transform.position);
-
-        if(distance <= minDistance)
+        if(player != null)
         {
-            isNear = true;
-            return true;
-        
-        }
-        else
-        {
-            return false;
-        }
-    }
+            float distance = Vector3.Distance(this.transform.position, player.transform.position);
 
-    bool PlayerGoneAway()
-    {
-        float distance = Vector3.Distance(this.transform.position, player.transform.position);
-
-        if (isNear)
-        {
-            if(distance >= minDistance)
+            if (distance <= minDistance)
             {
-                isNear = false;
+                isNear = true;
                 return true;
+
             }
             else
             {
                 return false;
+            }
+        }
+        return false;
+    }
+
+    bool PlayerGoneAway()
+    {
+        if(player != null)
+        {
+
+            float distance = Vector3.Distance(this.transform.position, player.transform.position);
+
+            if (isNear)
+            {
+                if (distance >= minDistance)
+                {
+                    isNear = false;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 
@@ -89,5 +98,10 @@ public class BuildSlot : MonoBehaviour
     private void HideUI()
     {
         UIManager.instance.DesactivateShopUI();
+    }
+
+    public void TurretDestroyed()
+    {
+        canBuild = true;
     }
 }

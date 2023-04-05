@@ -46,10 +46,10 @@ public class EnemyHealth : IHaveHealth
     {
         base.Die();
         EnemyDead();
-       // for (int i = 0; i < (maxHealth*5); i++)
-      //  {
-       //     Instantiate(coin, transform.position, transform.rotation);
-        //}
+        for (int i = 0; i < (maxHealth * DropAmount()); i++)
+        {
+          Instantiate(coin, transform.position, transform.rotation);
+        }
         Destroy(gameObject);
     }
 

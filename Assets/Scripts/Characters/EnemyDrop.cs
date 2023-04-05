@@ -20,12 +20,11 @@ public class EnemyDrop : MonoBehaviour
 
     public void Dropcollectables()
     {
-        int value = this.GetComponent<EnemyHealth>().DropAmount() ;
+        int value = this.GetComponent<EnemyHealth>().DropAmount();
         for (int i = 0; i < value; i++)
         {
             int item = Random.Range(0, itensToDrop.Length);
             Instantiate(itensToDrop[item], transform.position, transform.rotation);
         }
-
     }
 }

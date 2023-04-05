@@ -7,7 +7,6 @@ public class ShopSystem : MonoBehaviour
     [SerializeField]
     Vector3 offset;
 
-
     [SerializeField]
     private GameObject quadTurretPrefab;
     public int quadTurretCost;
@@ -50,7 +49,7 @@ public class ShopSystem : MonoBehaviour
         {
             if (player.CanSpendCoins(turnTurretCost))
             {
-                Instantiate(turnTurretPrefab, transform.position + offset, transform.rotation);
+                Instantiate(turnTurretPrefab, UIManager.instance.WhereToBuild().position, UIManager.instance.WhereToBuild().rotation);
             }
         }
     }

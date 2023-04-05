@@ -97,5 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47b6cc058aa22744a4559eb7fda27eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canBuild: 0
   minDistance: 2
   player: {fileID: 0}

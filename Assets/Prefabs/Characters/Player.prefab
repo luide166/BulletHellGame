@@ -231,25 +231,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bcfa374dc70aff49b9f530f617f4710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitTimer: 0
+  hitTimer: 0.2
   hitPivot: {fileID: 2131102113}
   hitPosition: {fileID: 488531904}
   hitRenderer: {fileID: 8869840798920274577}
   canAttack: 0
   canBuild: 0
-  attackCollor: {r: 1, g: 0, b: 0, a: 0.27450982}
+  attackCollor: {r: 1, g: 0, b: 0, a: 0.19607843}
   whatToAttack:
     serializedVersion: 2
     m_Bits: 2048
-  attackRange: 0.5
-  knockbackPower: 16
-  buildCollor: {r: 1, g: 0.89164263, b: 0, a: 0.27450982}
   whatToDestroy:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 86016
+  attackRange: 0.5
+  knockbackPower: 8
+  buildCollor: {r: 1, g: 0.89164263, b: 0, a: 0.19607843}
   whatToBuild:
     serializedVersion: 2
-    m_Bits: 8192
+    m_Bits: 106496
   buildRange: 0
 --- !u!114 &1391124696
 MonoBehaviour:
@@ -263,8 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9fc6efac5bf804cae693dc0719efce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: 0
-  screws: 0
+  coins: 20
+  screws: 20
 --- !u!1 &7045548189240603027
 GameObject:
   m_ObjectHideFlags: 0

@@ -40,7 +40,7 @@ public class PlayerCollectables : MonoBehaviour
     {
         bool canBuy = false;
 
-        if (amount <= coins)
+        if (coins >= amount)
         {
             coins -= amount;
             UIManager.instance.ChangeCoinText(coins);
@@ -53,10 +53,10 @@ public class PlayerCollectables : MonoBehaviour
     {
         bool canBuy = false;
 
-        if (amount <= coins)
+        if (amount <= screws)
         {
-            screws -= amount;
-            UIManager.instance.ChangeScrewText(coins);
+            screws = screws - amount;
+            UIManager.instance.ChangeScrewText(screws);
             canBuy = true;
         }
 

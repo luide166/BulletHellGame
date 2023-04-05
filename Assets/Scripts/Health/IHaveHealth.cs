@@ -12,7 +12,6 @@ public class IHaveHealth : MonoBehaviour
     {
         if (currentHealth < 0)
         {
-
             Die();
         }
     }

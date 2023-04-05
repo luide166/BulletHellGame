@@ -39,21 +39,21 @@ public class PlayerAttack : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         SelectWeapon();
         RotateWeapon();
 
-        if (timeBetweenAttack <=0)
+        if (timeBetweenAttack <= 0)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 Attack();
             }
-            else
-            {
-                timeBetweenAttack -= Time.deltaTime;
-            }
+        }
+        else
+        {
+            timeBetweenAttack -= Time.deltaTime;
         }
     }
 
