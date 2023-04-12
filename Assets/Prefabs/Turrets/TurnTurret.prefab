@@ -315,7 +315,7 @@ MonoBehaviour:
   cost: 20
   itemToDrop: {fileID: 6776307137043732412, guid: bf0f5b1c8e4ee1a48a6d54dfc416bec1,
     type: 3}
-  minDropPercentage: 20
+  minDropPercentage: 30
   maxDropPercentage: 50
 --- !u!1 &8742006424583478832
 GameObject:

@@ -8,9 +8,13 @@ public class StateMachine : MonoBehaviour
     public BeginState beginState = new BeginState();
     public RoundState roundState = new RoundState();
     public PreRoundState preRoundState = new PreRoundState();
+    public GameOverState gameOverState = new GameOverState();
 
     [Header("Spawner")]
     public WaveSpawner waveSpawner;
+
+    [Header("Game Over")]
+    public GameObject gameOverScreen;
 
     private void Start()
     {
@@ -24,6 +28,11 @@ public class StateMachine : MonoBehaviour
     {
         currentState = _state;
 
+        currentState.EnterState(this);
+    }
+    public void GameOver()
+    {
+        currentState = gameOverState;
         currentState.EnterState(this);
     }
 

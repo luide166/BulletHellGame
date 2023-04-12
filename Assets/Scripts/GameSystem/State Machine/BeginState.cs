@@ -11,8 +11,10 @@ public class BeginState : State
         //configurar o spawner (Interface integrada) OK
         //não deixar as torres Atirarem
         //configurar a vida do Jogador
+        //Desligar a interface de GameOver
 
         state.waveSpawner.StartSpawner();
+        state.gameOverScreen.SetActive(false);
         state.StopShootingTurrets();
         UIManager.instance.ChangeRoundText(state.waveSpawner.RoundCount());
         state.StopShootingTurrets();

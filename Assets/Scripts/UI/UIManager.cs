@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class UIManager : MonoBehaviour
     public Vector3 offsetShopUI;
     private Camera cam;
 
+
+    [Header("GameOverUI")]
+    public GameObject gameOverMenu;
 
     // Start is called before the first frame update
     void Awake()
@@ -91,5 +95,10 @@ public class UIManager : MonoBehaviour
     public void ChangeCoinText(int amount)
     {
         coinsText.text = amount.ToString();
+    }
+
+    public void ReplayLevelButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

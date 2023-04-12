@@ -24,7 +24,7 @@ public class EnemyMove : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
 
-        if (Vector2.Distance(transform.position, path.waypoints[waypointIndex].position) < 1.2f)
+        if (Vector2.Distance(transform.position, path.waypoints[waypointIndex].position) < .2f)
         {
             if (waypointIndex < path.waypoints.Length - 1)
             {

@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bcfa374dc70aff49b9f530f617f4710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitTimer: 0.2
+  hitTimer: 0.05
   hitPivot: {fileID: 2131102113}
   hitPosition: {fileID: 488531904}
   hitRenderer: {fileID: 8869840798920274577}
@@ -250,7 +250,7 @@ MonoBehaviour:
   whatToBuild:
     serializedVersion: 2
     m_Bits: 106496
-  buildRange: 0
+  buildRange: 0.5
 --- !u!114 &1391124696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,7 +336,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1759363651
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

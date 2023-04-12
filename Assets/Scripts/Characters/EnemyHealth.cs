@@ -12,10 +12,13 @@ public class EnemyHealth : IHaveHealth
     private int maxHealth;
     Rigidbody2D rb;
 
+    [Header("Drop Amount")]
     [SerializeField]
-    private GameObject coin;
+    private GameObject[] itensToDrop;
+
     [SerializeField]
-    private int coinMultiplier;
+    private int amount;
+
 
 
     void Start()
@@ -29,6 +32,7 @@ public class EnemyHealth : IHaveHealth
         currentHealth--;
         if (currentHealth <= 0)
         {
+            DropCollectables();
             Die();
             yield break;
         }
@@ -45,11 +49,9 @@ public class EnemyHealth : IHaveHealth
     public override void Die()
     {
         base.Die();
+
         EnemyDead();
-        for (int i = 0; i < (maxHealth * DropAmount()); i++)
-        {
-          Instantiate(coin, transform.position, transform.rotation);
-        }
+
         Destroy(gameObject);
     }
 
@@ -69,12 +71,13 @@ public class EnemyHealth : IHaveHealth
         yield return new WaitForSeconds(1);
     }
 
-    public int DropAmount()
+
+    private void DropCollectables()
     {
-        int amount = 0;
-        amount = maxHealth * coinMultiplier;
-
-        return amount;
+        for (int i = 0; i < amount; i++)
+        {
+            int item = UnityEngine.Random.Range(0, itensToDrop.Length);
+            Instantiate(itensToDrop[item], transform.position, transform.rotation);
+        }
     }
-
 }

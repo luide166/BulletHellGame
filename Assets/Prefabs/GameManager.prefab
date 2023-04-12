@@ -63,10 +63,10 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   quadTurretPrefab: {fileID: 4805114606010849728, guid: c24eb96241a33b946a2c48bed709395e,
     type: 3}
-  quadTurretCost: 15
+  quadTurretCost: 50
   turnTurretPrefab: {fileID: 2648059637089769521, guid: dbfcd3038384d3c45aaeb729668c8c60,
     type: 3}
-  turnTurretCost: 15
+  turnTurretCost: 50
 --- !u!114 &1021016147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,7 +92,7 @@ GameObject:
   m_Layer: 0
   m_Name: Spawn Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -136,7 +136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7021229853160808905}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.18, y: -5.68, z: 5.955078}
+  m_LocalPosition: {x: -5.18, y: -4, z: 5.955078}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

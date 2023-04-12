@@ -39,6 +39,7 @@ public class PlayerHealth : IHaveHealth
     public override void Die()
     {
         base.Die();
+        FindObjectOfType<StateMachine>().GameOver();
         Destroy(gameObject);
     }
 

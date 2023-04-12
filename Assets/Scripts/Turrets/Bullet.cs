@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
     {
         Vector3 direction = transform.forward;
 
-        transform.position += transform.right  * (speed / 10) * Time.fixedDeltaTime;
+        transform.position += transform.right  * (speed / 10) * Time.deltaTime;
     }
 
     private void AutoDestroy()

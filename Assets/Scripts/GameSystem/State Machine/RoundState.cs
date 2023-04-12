@@ -41,6 +41,7 @@ public class RoundState : State
             if(state.waveSpawner.aliveEnemyCount ==0)
             {
                 Debug.Log("Matou Todos");
+                state.StopShootingTurrets();
                 state.SetState(state.preRoundState);
             }
         }
