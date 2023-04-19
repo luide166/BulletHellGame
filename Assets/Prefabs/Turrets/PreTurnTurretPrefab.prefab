@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2648059636299645609}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 0.502, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -71,14 +71,14 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -648650407
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -85009248, guid: f7f83918e25718844907b6f87404d912, type: 3}
   m_Color: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.92, y: 1.98}
+  m_Size: {x: 1, y: 1.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -110,7 +110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2648059637089769521}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.795, y: 0.7223051, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -131,8 +131,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
-  m_Size: {x: 0.9, y: 1.18}
+  m_Offset: {x: 0, y: -0.05}
+  m_Size: {x: 0.9, y: 1.5}
   m_Direction: 0
 --- !u!114 &7354657963016287939
 MonoBehaviour:
@@ -150,8 +150,9 @@ MonoBehaviour:
   turretToBuild: {fileID: 8742006424290378920, guid: d83b4585d6c50e946af7ca4fe8d65133,
     type: 3}
   builtLevel: 0
-  maxBuiltLevel: 3
+  maxBuiltLevel: 4
   turretsLevelSprite:
   - {fileID: -85009248, guid: f7f83918e25718844907b6f87404d912, type: 3}
   - {fileID: -1463163299, guid: f7f83918e25718844907b6f87404d912, type: 3}
   - {fileID: 1780413574, guid: f7f83918e25718844907b6f87404d912, type: 3}
+  - {fileID: -977449496, guid: f7f83918e25718844907b6f87404d912, type: 3}

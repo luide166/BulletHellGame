@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class PreBuildTurret : IHaveHealth
 {
-
     [Header("Turret Built")]
-
     public GameObject turretToBuild;
     public int builtLevel;
     public int maxBuiltLevel;

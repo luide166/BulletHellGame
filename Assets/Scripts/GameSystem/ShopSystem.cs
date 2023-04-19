@@ -36,7 +36,7 @@ public class ShopSystem : MonoBehaviour
         {
             if (player.CanSpendScrews(quadTurretCost))
             {
-                Instantiate(quadTurretPrefab, UIManager.instance.WhereToBuild().position, UIManager.instance.WhereToBuild().rotation);
+                Instantiate(quadTurretPrefab, UIManager.instance.WhereToBuild().position+offset, UIManager.instance.WhereToBuild().rotation);
             }
         }
         

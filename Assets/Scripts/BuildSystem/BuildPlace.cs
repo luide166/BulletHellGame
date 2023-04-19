@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BuildPlace : IHaveHealth
 {
+    [Header("Build Stats")]
     [SerializeField]
     private int maxhealth;
 
@@ -11,23 +12,19 @@ public class BuildPlace : IHaveHealth
     private GameObject buildSlotPrefab;
 
     public Sprite[] sprites;
+    private SpriteRenderer renderer;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         SetHealth(maxhealth);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        renderer = GetComponent<SpriteRenderer>();
+        renderer.sprite = sprites[(int)currentHealth];
     }
 
     public override void TakeHit(float hitPower)
     {
         currentHealth -= hitPower;
-        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         renderer.sprite = sprites[(int)currentHealth];
 
         if (currentHealth <= 0)

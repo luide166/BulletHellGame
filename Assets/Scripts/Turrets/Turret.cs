@@ -12,14 +12,12 @@ public class Turret : MonoBehaviour
     float shootsPerMinute;
     float nextShoot;
     
-    // Start is called before the first frame update
     void Awake()
     {
         launcher = GetComponent<ILauncher>();
         nextShoot = 60 / shootsPerMinute;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if(idle == false) 
