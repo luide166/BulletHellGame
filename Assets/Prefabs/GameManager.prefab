@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f347c9a1098a524f85780b0b22d9ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0.25, z: 0}
   quadTurretPrefab: {fileID: 4805114606010849728, guid: c24eb96241a33b946a2c48bed709395e,
     type: 3}
   quadTurretCost: 50

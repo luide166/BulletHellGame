@@ -9,11 +9,14 @@ public class StateMachine : MonoBehaviour
     public RoundState roundState = new RoundState();
     public PreRoundState preRoundState = new PreRoundState();
     public GameOverState gameOverState = new GameOverState();
+    public WinGameState winGameState = new WinGameState();
 
     [Header("Spawner")]
     public WaveSpawner waveSpawner;
 
-    [Header("Game Over")]
+    [Header("Game Control")]
+    public int roundLimit;
+    public GameObject winGameScreen;
     public GameObject gameOverScreen;
 
     private void Start()
@@ -24,21 +27,23 @@ public class StateMachine : MonoBehaviour
         currentState.EnterState(this);
     }
 
-    public void SetState(State _state)
-    {
-        currentState = _state;
-
-        currentState.EnterState(this);
-    }
-    public void GameOver()
-    {
-        currentState = gameOverState;
-        currentState.EnterState(this);
-    }
 
     private void FixedUpdate()
     {
         currentState.UpdateState(this);
+    }
+
+    #region States
+    public void SetState(State _state)
+    {
+        currentState = _state;
+        currentState.EnterState(this);
+    }
+
+    public void GameOver()
+    {
+        currentState = gameOverState;
+        currentState.EnterState(this);
     }
 
     public void PlayButton(State _state)
@@ -50,6 +55,7 @@ public class StateMachine : MonoBehaviour
     {
         currentState.PauseButton(this);
     }
+    #endregion
 
     #region UI Button Method
     public void Play()
@@ -63,7 +69,7 @@ public class StateMachine : MonoBehaviour
     }
     #endregion
 
-    #region Turrets Idle
+    #region Turrets Shoot Controll
 
     public void StopShootingTurrets()
     {
@@ -73,6 +79,7 @@ public class StateMachine : MonoBehaviour
             turret[i].idle = true;
         }
     }
+
     public void StartShootingTurrets()
     {
         Turret[] turret = FindObjectsOfType<Turret>();
@@ -81,7 +88,18 @@ public class StateMachine : MonoBehaviour
             turret[i].idle = false;
         }
     }
-
     #endregion
+
+    public bool GameWin()
+    {
+        bool isFinalRound = false;
+
+        if (waveSpawner.RoundCount() >= roundLimit)
+        {
+            isFinalRound = true;
+        }
+
+        return isFinalRound;
+    }
 
 }

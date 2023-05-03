@@ -35,6 +35,6 @@ public class IHaveHealth : MonoBehaviour
     }
     public virtual void Die() 
     {
-        Debug.Log("Morri" + name);
+
     }
 }

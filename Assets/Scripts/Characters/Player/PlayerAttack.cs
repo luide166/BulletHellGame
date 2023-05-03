@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
     public Transform hitPivot;
     public Transform hitPosition;
     public SpriteRenderer hitRenderer;
+    public float alphaMultiplier;
 
     public bool canAttack;
     public bool canBuild;
@@ -46,6 +47,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (timeBetweenAttack <= 0)
         {
+            hitRenderer.enabled = true;
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 Attack();
@@ -53,6 +55,7 @@ public class PlayerAttack : MonoBehaviour
         }
         else
         {
+            hitRenderer.enabled = false;
             timeBetweenAttack -= Time.deltaTime;
         }
     }

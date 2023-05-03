@@ -2,16 +2,13 @@
 using UnityEngine;
 public class RoundState : State
 {
-
     public override void EnterState(StateMachine state)
     {
-        //
-        //
-        //
         //Verificar se os inimigos foram Eliminados
         //Se as vidas acabarem Game Over
-        //
-        state.waveSpawner.canSpawn= true;
+        
+        Debug.Log("Tem mais Round");
+        state.waveSpawner.canSpawn = true;
         state.StartShootingTurrets();
     }
 

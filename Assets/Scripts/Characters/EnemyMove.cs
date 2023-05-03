@@ -24,7 +24,7 @@ public class EnemyMove : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
 
-        if (Vector2.Distance(transform.position, path.waypoints[waypointIndex].position) < .2f)
+        if (Vector2.Distance(transform.position, path.waypoints[waypointIndex].position) < .05f)
         {
             if (waypointIndex < path.waypoints.Length - 1)
             {
@@ -34,6 +34,7 @@ public class EnemyMove : MonoBehaviour
             {
                 // damage player
                 Destroy(gameObject);
+                StartCoroutine(FindObjectOfType<PlayerHealth>().TakeBullet());
             }
         }
 

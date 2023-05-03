@@ -15,6 +15,10 @@ public class PauseControll : MonoBehaviour
         {
             TogglePause();
         }
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            SpeedUp();
+        }
     }
 
     public void TogglePause()
@@ -36,5 +40,10 @@ public class PauseControll : MonoBehaviour
 
             isPaused = false;
         }
+    }
+
+    public void SpeedUp()
+    {
+        Time.timeScale *= 1.5f;
     }
 }

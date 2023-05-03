@@ -58,7 +58,7 @@ public class EnemyHealth : IHaveHealth
     public IEnumerator Knockback(float knockPower,Vector2 knockDir)
     {
         float timer = 0;
-        float knockDur = (knockPower / (rb.mass * 1.5f));
+        float knockDur = (knockPower / (rb.mass));
 
         while(knockDur> timer)
         {
@@ -77,7 +77,7 @@ public class EnemyHealth : IHaveHealth
         for (int i = 0; i < amount; i++)
         {
             int item = UnityEngine.Random.Range(0, itensToDrop.Length);
-            Instantiate(itensToDrop[item], transform.position, transform.rotation);
+            Instantiate(itensToDrop[item], transform.position, Quaternion.identity);
         }
     }
 }

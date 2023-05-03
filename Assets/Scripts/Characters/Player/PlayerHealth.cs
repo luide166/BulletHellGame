@@ -17,10 +17,6 @@ public class PlayerHealth : IHaveHealth
         UIManager.instance.ChangePlayerLife(maxHealth,currentHealth);
     }
 
-    void Update()
-    {
-    }
-
     public override IEnumerator TakeBullet()
     {
         //dar dano no player

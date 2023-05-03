@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
 
 public class UIManager : MonoBehaviour
 {
@@ -48,6 +49,8 @@ public class UIManager : MonoBehaviour
         
     }
 
+    #region Shop UI
+
     public void ActivateShopUI(Transform _buildSlot)
     {
         buildSlot = _buildSlot;
@@ -68,6 +71,12 @@ public class UIManager : MonoBehaviour
         shopUI.SetActive(false);
     }
 
+    public BuildSlot GetBuildSlot()
+    {
+        BuildSlot _buildSlot = buildSlot.GetComponent<BuildSlot>();
+        return _buildSlot;
+    }
+
     public Transform WhereToBuild()
     {
         DesactivateShopUI();
@@ -75,6 +84,8 @@ public class UIManager : MonoBehaviour
         slot.canBuild = false;
         return buildSlot;
     }
+
+    #endregion
 
 
     public void ChangeRoundText(int roundCount)
@@ -88,6 +99,7 @@ public class UIManager : MonoBehaviour
         healthBar.fillAmount = fillpercentage;
     }
 
+    #region Collectables
     public void ChangeScrewText(int amount)
     {
         screwText.text = amount.ToString();
@@ -96,6 +108,7 @@ public class UIManager : MonoBehaviour
     {
         coinsText.text = amount.ToString();
     }
+    #endregion
 
     public void ReplayLevelButton()
     {

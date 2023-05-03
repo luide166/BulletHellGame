@@ -42,8 +42,16 @@ public class Bullet : MonoBehaviour
             if (otherHaveHealth.gameObject.CompareTag("Player") || otherHaveHealth.gameObject.CompareTag("Enemy"))
             {
                 Destroy(this.gameObject);
-
             }
+        }
+       
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            Destroy(this.gameObject);
         }
     }
 

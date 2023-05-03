@@ -15,20 +15,6 @@ public class ShopSystem : MonoBehaviour
     private GameObject turnTurretPrefab;
     public int turnTurretCost;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
     public void BuyQuadTurret()
     {
         PlayerCollectables player = FindObjectOfType<PlayerCollectables>();
@@ -36,10 +22,11 @@ public class ShopSystem : MonoBehaviour
         {
             if (player.CanSpendScrews(quadTurretCost))
             {
-                Instantiate(quadTurretPrefab, UIManager.instance.WhereToBuild().position+offset, UIManager.instance.WhereToBuild().rotation);
+                BuildSlot _buildSlot = UIManager.instance.GetBuildSlot();
+
+                _buildSlot.BuildTurret(offset, quadTurretPrefab);
             }
         }
-        
     }
 
     public void BuyTurnTurret()
@@ -49,7 +36,9 @@ public class ShopSystem : MonoBehaviour
         {
             if (player.CanSpendCoins(turnTurretCost))
             {
-                Instantiate(turnTurretPrefab, UIManager.instance.WhereToBuild().position, UIManager.instance.WhereToBuild().rotation);
+                BuildSlot _buildSlot = UIManager.instance.GetBuildSlot();
+
+                _buildSlot.BuildTurret(offset, turnTurretPrefab);    
             }
         }
     }

@@ -90,8 +90,6 @@ public class WaveSpawner : MonoBehaviour
         
         enemiesToSpawn.Clear();
         enemiesToSpawn = generatedEnemies;
-
-        Debug.LogWarning("Inimigos Prontos para Spawn");
     }
 
  
@@ -111,7 +109,7 @@ public class WaveSpawner : MonoBehaviour
                 //Have enemies to Spawn
                 if (enemiesToSpawn.Count > 0)
                 {
-                    Instantiate(enemiesToSpawn[0], transform.position, Quaternion.identity);
+                    Instantiate(enemiesToSpawn[0], spawnPosition.transform.position, Quaternion.identity);
                     aliveEnemyCount++;
                     Debug.Log("Start Spawning");
                     enemiesToSpawn.RemoveAt(0);

@@ -4,37 +4,44 @@ using UnityEngine;
 
 public class BuildSlot : MonoBehaviour
 {
+    private SpriteRenderer renderer;
+
+    public GameObject turret;
     public bool canBuild;
 
-    public float minDistance;
-
+    [Header("Player is Near?")]
     [SerializeField]
     private GameObject player;
-
     private bool isNear;
+    public float minDistance;
 
     void Start()
     {
         player = FindObjectOfType<PlayerAttack>().gameObject;
+        renderer = GetComponent<SpriteRenderer>();
         canBuild = true;
         TurretHealth.TurretDead += TurretDestroyed;
     }
 
-    // Update is called once per frame
     void Update()
     {
-
-        if(PlayerIsNear())
+        if (canBuild)
         {
-            print("Ta perto");
+            if (PlayerIsNear())
+            {
+                print("Ta perto");
 
-            ActivateUI();
+                ActivateUI();
+            }
+            else if (PlayerGoneAway())
+            {
+                HideUI();
+            }
         }
-        else if(PlayerGoneAway())
+        else
         {
             HideUI();
         }
-
     }
 
     bool PlayerIsNear()
@@ -61,7 +68,6 @@ public class BuildSlot : MonoBehaviour
     {
         if(player != null)
         {
-
             float distance = Vector3.Distance(this.transform.position, player.transform.position);
 
             if (isNear)
@@ -103,5 +109,15 @@ public class BuildSlot : MonoBehaviour
     public void TurretDestroyed()
     {
         canBuild = true;
+        renderer.enabled = true;
+    }
+
+    public void BuildTurret(Vector3 _offset, GameObject turretToBuild)
+    {
+        Vector3 positionToBuild = transform.position + _offset;
+        turret = Instantiate(turretToBuild, positionToBuild, Quaternion.identity);
+
+        canBuild = false;
+        renderer.enabled = false;
     }
 }
