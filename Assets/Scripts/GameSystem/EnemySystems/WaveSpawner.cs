@@ -6,25 +6,30 @@ public class WaveSpawner : MonoBehaviour
 {
     public int waveCount;
 
+    [Header("- Spawn Control")]
+    [Space(20)]
+    public Transform spawnPosition;
+    public bool canSpawn;
+    public float spawnInterval;
+    private float spawnTimer;
+
+
     [Header("Wave Shop")]
     [Space(20)]
     public int waveMoney;
     public List<EnemySpawnShop> enemies = new List<EnemySpawnShop>();
     private List<GameObject> enemiesToSpawn = new List<GameObject>();
 
-
     [Header("- Spawn Control")]
     [Space(20)]
-    public Transform spawnPosition;
     public int aliveEnemyCount;
-    [Header("Spawn Enemies")]
-    public bool canSpawn;
-    public float spawnInterval;
-    private float spawnTimer;
+    public int enemyKilled;
+
 
     private void Start()
     {
         EnemyHealth.EnemyDead += KillEnemies;
+        enemyKilled = 0;
     }
 
     void FixedUpdate()
@@ -131,6 +136,13 @@ public class WaveSpawner : MonoBehaviour
     public void KillEnemies()
     {
         aliveEnemyCount--;
+        enemyKilled++;
+        Debug.Log(enemyKilled);
+    }
+
+    public int GetKilledEnemies()
+    {
+        return enemyKilled;
     }
 
 }

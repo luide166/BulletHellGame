@@ -21,7 +21,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI coinsText;
 
-
     [Header("Shop UI")]
     [SerializeField]
     private GameObject shopUI;
@@ -30,9 +29,14 @@ public class UIManager : MonoBehaviour
     public Vector3 offsetShopUI;
     private Camera cam;
 
-
     [Header("GameOverUI")]
     public GameObject gameOverMenu;
+
+    [Header("GameWinUI")]
+    public TextMeshProUGUI totalKilledEnemies;
+    public TextMeshProUGUI totalCoinsCollected;
+    public TextMeshProUGUI totalScrewsCollected;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -114,4 +118,18 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void UpdateKilledEnemies(int amount)
+    {
+        totalKilledEnemies.text = amount.ToString();
+    }
+    public void UpdateCoinCollected(int amount)
+    {
+        totalCoinsCollected.text = amount.ToString();
+    }
+    public void UpdateScrewCollected(int amount)
+    {
+        totalScrewsCollected.text = amount.ToString();
+    }
+
 }

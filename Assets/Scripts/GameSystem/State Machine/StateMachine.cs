@@ -15,6 +15,7 @@ public class StateMachine : MonoBehaviour
     public WaveSpawner waveSpawner;
 
     [Header("Game Control")]
+    public bool isEndless;
     public int roundLimit;
     public GameObject winGameScreen;
     public GameObject gameOverScreen;
@@ -55,6 +56,8 @@ public class StateMachine : MonoBehaviour
     {
         currentState.PauseButton(this);
     }
+
+
     #endregion
 
     #region UI Button Method
@@ -90,15 +93,20 @@ public class StateMachine : MonoBehaviour
     }
     #endregion
 
-    public bool GameWin()
+    public bool IsLastRound()
     {
         bool isFinalRound = false;
-
-        if (waveSpawner.RoundCount() >= roundLimit)
+        if (!isEndless)
         {
-            isFinalRound = true;
+            if (waveSpawner.RoundCount() >= roundLimit)
+            {
+                isFinalRound = true;
+                UIManager.instance.UpdateKilledEnemies(waveSpawner.GetKilledEnemies());
+                UIManager.instance.UpdateCoinCollected(FindObjectOfType<PlayerCollectables>().GetTotalCoinsColected());
+                UIManager.instance.UpdateScrewCollected(FindObjectOfType<PlayerCollectables>().GetTotalScrewsCollected());
+            }
         }
-
+         
         return isFinalRound;
     }
 

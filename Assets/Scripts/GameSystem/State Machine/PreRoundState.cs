@@ -16,7 +16,7 @@ public class PreRoundState : State
 
         state.StopShootingTurrets();
 
-        if (state.GameWin())
+        if (state.IsLastRound())
         {
             UIManager.instance.ChangeRoundText(state.waveSpawner.RoundCount());
             state.SetState(state.winGameState);
